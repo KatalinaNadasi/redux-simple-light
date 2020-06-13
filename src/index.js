@@ -1,12 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import lightReducer from './reducers/lightReducer';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+// 2 - CREATE A STORE AND STORE THE REDUCER
+const store = createStore(
+  lightReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ &&
+  window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+
+// 3 - Install the Provider
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
