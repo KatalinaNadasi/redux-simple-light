@@ -1,4 +1,3 @@
-import React from 'react';
 
 // 1- Create a reducer
 const lightReducer = (state = "on", action) => {
